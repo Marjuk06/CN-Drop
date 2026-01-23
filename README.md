@@ -16,4 +16,4 @@ Get the latest version for your device from the **[Releases Section](https://git
 
 ---
 
-**Developed by Marjuk06**
+**Developed by Marjuk Amin**
