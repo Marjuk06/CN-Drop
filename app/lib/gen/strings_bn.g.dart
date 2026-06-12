@@ -13,15 +13,21 @@ import 'strings.g.dart';
 class TranslationsBn extends Translations {
   /// You can call this constructor and build your own translation instance of this locale.
   /// Constructing via the enum [AppLocale.build] is preferred.
-  TranslationsBn({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
-    : assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-      $meta = TranslationMetadata(
-        locale: AppLocale.bn,
-        overrides: overrides ?? {},
-        cardinalResolver: cardinalResolver,
-        ordinalResolver: ordinalResolver,
-      ),
-      super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+  TranslationsBn({
+    Map<String, Node>? overrides,
+    PluralResolver? cardinalResolver,
+    PluralResolver? ordinalResolver,
+    TranslationMetadata<AppLocale, Translations>? meta,
+  }) : assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+       $meta =
+           meta ??
+           TranslationMetadata(
+             locale: AppLocale.bn,
+             overrides: overrides ?? {},
+             cardinalResolver: cardinalResolver,
+             ordinalResolver: ordinalResolver,
+           ),
+       super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
   /// Metadata for the translations of <bn>.
   @override
@@ -29,11 +35,14 @@ class TranslationsBn extends Translations {
 
   late final TranslationsBn _root = this; // ignore: unused_field
 
+  @override
+  TranslationsBn $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsBn(meta: meta ?? this.$meta);
+
   // Translations
   @override
   String get locale => 'বাংলা';
   @override
-  String get appName => 'LocalSend';
+  String get appName => 'CN Drop';
   @override
   late final _TranslationsGeneralBn general = _TranslationsGeneralBn._(_root);
   @override
@@ -451,10 +460,10 @@ class _TranslationsAboutPageBn extends TranslationsAboutPageEn {
 
   // Translations
   @override
-  String get title => 'LocalSend সম্পর্কে';
+  String get title => 'CN Drop সম্পর্কে';
   @override
   List<String> get description => [
-    'LocalSend হল একটি ফ্রী, ওপেন সোর্স অ্যাপ যা ইন্টারনেট ছাড়াই আপনার লোকাল নেটওয়ার্কের ডিভাইসগুলির সাথে ফাইল এবং মেসেজ নিরাপদে শেয়ার করতে দেয়৷',
+    'CN Drop হল একটি ফ্রী, ওপেন সোর্স অ্যাপ যা ইন্টারনেট ছাড়াই আপনার লোকাল নেটওয়ার্কের ডিভাইসগুলির সাথে ফাইল এবং মেসেজ নিরাপদে শেয়ার করতে দেয়৷',
     'এই অ্যাপটি Android, iOS, macOS, Windows এবং Linux-এ অ্যাভেলেবেল। আপনি অফিসিয়াল হোমপেজে সব ডাউনলোড অপশন খুঁজে পাবেন।',
   ];
   @override
@@ -994,7 +1003,7 @@ class _TranslationsTroubleshootPageFirewallBn extends TranslationsTroubleshootPa
   String solution({required Object port}) =>
       'এটি সম্ভবত একটি ফায়ারওয়াল সমস্যা। আপনি পোর্টে ইনকামিং কানেকশন (UDP এবং TCP) পারমিশন দিয়ে এটি ঠিক করতে পারেন ${port}.';
   @override
-  String get openFirewallSettings => 'ফায়ারওয়াল খুলুন';
+  String get openFirewall => 'ফায়ারওয়াল খুলুন';
 }
 
 // Path: troubleshootPage.noDiscovery

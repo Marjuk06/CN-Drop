@@ -13,15 +13,21 @@ import 'strings.g.dart';
 class TranslationsEnIn extends Translations {
   /// You can call this constructor and build your own translation instance of this locale.
   /// Constructing via the enum [AppLocale.build] is preferred.
-  TranslationsEnIn({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
-    : assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-      $meta = TranslationMetadata(
-        locale: AppLocale.enIn,
-        overrides: overrides ?? {},
-        cardinalResolver: cardinalResolver,
-        ordinalResolver: ordinalResolver,
-      ),
-      super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+  TranslationsEnIn({
+    Map<String, Node>? overrides,
+    PluralResolver? cardinalResolver,
+    PluralResolver? ordinalResolver,
+    TranslationMetadata<AppLocale, Translations>? meta,
+  }) : assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+       $meta =
+           meta ??
+           TranslationMetadata(
+             locale: AppLocale.enIn,
+             overrides: overrides ?? {},
+             cardinalResolver: cardinalResolver,
+             ordinalResolver: ordinalResolver,
+           ),
+       super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
   /// Metadata for the translations of <en-IN>.
   @override
@@ -29,11 +35,14 @@ class TranslationsEnIn extends Translations {
 
   late final TranslationsEnIn _root = this; // ignore: unused_field
 
+  @override
+  TranslationsEnIn $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsEnIn(meta: meta ?? this.$meta);
+
   // Translations
   @override
   String get locale => 'English(India)';
   @override
-  String get appName => 'LocalSend';
+  String get appName => 'CN Drop';
   @override
   late final _TranslationsGeneralEnIn general = _TranslationsGeneralEnIn._(_root);
   @override
@@ -318,8 +327,11 @@ class _TranslationsReceivePageEnIn extends TranslationsReceivePageEn {
 
   // Translations
   @override
-  String subTitle({required num n}) =>
-      (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(n, one: 'wants to send you a file', other: 'wants to send you ${n} files');
+  String subTitle({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(
+    n,
+    one: 'wants to send you a file',
+    other: 'wants to send you ${n} files',
+  );
   @override
   String get subTitleMessage => 'sent you a message:';
   @override
@@ -428,10 +440,10 @@ class _TranslationsAboutPageEnIn extends TranslationsAboutPageEn {
 
   // Translations
   @override
-  String get title => 'About LocalSend';
+  String get title => 'About CN Drop';
   @override
   List<String> get description => [
-    'LocalSend is a free, open-source app that allows you to securely share files and messages with nearby devices over your local network without needing an internet connection.',
+    'CN Drop is a free, open-source app that allows you to securely share files and messages with nearby devices over your local network without needing an internet connection.',
     'This app is available on Android, iOS, macOS, Windows and Linux. You can find all download options on the official homepage.',
   ];
   @override
@@ -989,7 +1001,7 @@ class _TranslationsTroubleshootPageFirewallEnIn extends TranslationsTroubleshoot
   String solution({required Object port}) =>
       'This is most likely a firewall issue. You can solve this by allowing incoming connections (UDP and TCP) on port ${port}.';
   @override
-  String get openFirewallSettings => 'Open Firewall Settings';
+  String get openFirewall => 'Open Firewall';
 }
 
 // Path: troubleshootPage.noDiscovery

@@ -143,7 +143,7 @@ extension InputDecorationThemeExt on InputDecorationThemeData {
 
 ColorScheme _determineColorScheme(ColorMode mode, Brightness brightness, DynamicColors? dynamicColors) {
   final defaultColorScheme = ColorScheme.fromSeed(
-    seedColor: Colors.teal,
+    seedColor: const Color.fromARGB(255, 255, 85, 0),
     brightness: brightness,
   );
 
